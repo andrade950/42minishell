@@ -58,7 +58,7 @@ MINISHELL/
 │     ├── expand/           # Environment variable expansion
 │     ├── free_functions/   # Memory deallocation and cleanup
 │     ├── heredoc/          # Heredoc implementation (<<)
-│     ├── run/              # Main execution loop management
+│     ├── run/              # Run Builtins
 │     ├── signals/          # Signal handling
 │     ├── syntax_error/     # Syntax error checking and handling
 │     ├── tokenizer/        # Command line tokenization
