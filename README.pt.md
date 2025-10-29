@@ -1,5 +1,7 @@
 # 🐚 Minishell
 
+[Read in English](README.md)
+
 ## 🧩 1. Visão Geral
 
 Este projeto consiste em desenvolver uma versão simplificada de um **shell** (linha de comando) — uma espécie de “pequeno bash” — para explorar temas como:  
