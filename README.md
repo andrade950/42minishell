@@ -76,7 +76,7 @@ MINISHELL/
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/andrade950/42minishell.git
+   git clone git@github.com:andrade950/42minishell.git
    cd 42minishell
 2. **Compile the project:**
    ```bash
