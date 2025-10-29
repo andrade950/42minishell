@@ -1,5 +1,7 @@
 # 🐚 Minishell
 
+[Leia em Português](README.pt.md)
+
 ## 🧩 1. Overview
 
 This project consists of developing a simplified version of a **shell** (command line) — a kind of "mini bash" — to explore topics such as:
