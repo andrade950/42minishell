@@ -33,7 +33,7 @@ The goal was to implement the main functionalities of a shell, maintaining an ap
   - `env`
   - `exit`
 - Execution of **external commands** via  `execve`, searching in `PATH`.  
-- **Signal handling** (Ctrl-C, Ctrl-D, Ctrl-\).
+- **Signal handling** (Ctrl-C, Ctrl-D, Ctrl-\ ).
 - **Error management** (invalid commands, incorrect syntax, etc).
 - **Proper memory deallocation** and leak prevention whenever possible.
 
