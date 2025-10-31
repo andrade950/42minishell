@@ -33,7 +33,7 @@ O objetivo foi implementar as principais funcionalidades de um shell, mantendo u
   - `env`
   - `exit`
 - Execução de **comandos externos** via `execve`, procurando no `PATH`.  
-- **Tratamento de sinais** (Ctrl-C, Ctrl-D, Ctrl-\).  
+- **Tratamento de sinais** (Ctrl-C, Ctrl-D, Ctrl-\ ).  
 - **Gestão de erros** (comandos inválidos, sintaxe incorreta, etc).  
 - **Libertação correta de memória** e prevenção de leaks sempre que possível.
 
