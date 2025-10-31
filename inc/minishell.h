@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggomes-v <ggomes-v@student.42.fr>          +#+  +:+       +#+        */
+/*   By: joaomart <joaomart@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 14:14:44 by ggomes-v          #+#    #+#             */
-/*   Updated: 2025/10/28 12:44:58 by ggomes-v         ###   ########.fr       */
+/*   Updated: 2025/10/31 13:23:13 by joaomart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -239,12 +239,12 @@ int			handle_output_redirect(t_token *curr, t_exec_node *cmd,
 				t_shell *shell);
 int			handle_append_redirect(t_token *curr, t_exec_node *cmd,
 				t_shell *shell);
-//===================================================================
-//execution_tree_build_utils3.c =====================================
-int			update_delimiters_array(t_exec_node *cmd, char *new_delimiter);
-
-//===================================================================
 //===============================================================
+
+//execution_tree_build_utils3.c =================================
+int			update_delimiters_array(t_exec_node *cmd, char *new_delimiter);
+//===============================================================
+
 
 // execute_tree_pipe_helpers.c ==================================
 pid_t		fork_right_child(int *pipe_fd, t_exec_node *node,
@@ -390,7 +390,7 @@ void		remove_token(t_token **head, t_token *to_remove);
 char		*generate_temp_filename(int i);
 int			create_temp_file(char **out_filename);
 void		error_heredoc(const char *delimiter);
-//=================================================================
+//===============================================================
 int			process_heredocs_in_tree(t_exec_node *node, t_shell *shell);
 char		*heredoc_parent(int fd, int status, char *filename, t_shell *shell);
 void		heredoc_child(const char *delimiter, int fd,
