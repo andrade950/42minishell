@@ -10,6 +10,8 @@
 
 [Read in English](README.md)
 
+*Desenvolvido por [andrade950](https://github.com/andrade950) & [g0nca](https://github.com/g0nca)*
+
 </div>
 
 ---
