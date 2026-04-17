@@ -1,94 +1,98 @@
-# 🐚 Minishell
+<div align="center">
+
+# 🐚 minishell
+
+**Uma shell Unix simplificada escrita em C**
+
+[![Linguagem](https://img.shields.io/badge/Linguagem-C-blue.svg)](https://en.wikipedia.org/wiki/C_(programming_language))
+[![Shell](https://img.shields.io/badge/Baseado%20em-Bash-orange.svg)](#funcionalidades)
+[![Norm](https://img.shields.io/badge/42-Norminette-brightgreen.svg)](#)
 
 [Read in English](README.md)
 
-## 🧩 1. Visão Geral
-
-Este projeto consiste em desenvolver uma versão simplificada de um **shell** (linha de comando) — uma espécie de “pequeno bash” — para explorar temas como:  
-- Leitura de input  
-- Parsing  
-- Execução de comandos  
-- Tratamento de variáveis de ambiente  
-- Pipes  
-- Redirecionamentos  
-- Sinais  
-
-O objetivo foi implementar as principais funcionalidades de um shell, mantendo um nível de complexidade adequado ao âmbito académico e técnico.
+</div>
 
 ---
 
-## ⚙️ 2. Funcionalidades Implementadas
+## 📌 Visão Geral
 
-- Leitura de linha de comando do utilizador, com **prompt customizado**.  
-- **Tokenização** da linha de comando (dividir em palavras, redireções, pipes, variáveis, aspas, etc).  
-- **Expansão de variáveis de ambiente** (`$HOME`, `$?`, etc).  
-- Suporte a **redirecionamentos** de entrada (`<`), saída (`>`), e append (`>>`).  
-- Suporte a **pipes (`|`)** para encadear múltiplos comandos.  
-- Implementação de **built-ins essenciais**:
-  - `cd`
-  - `echo`
-  - `pwd`
-  - `export`
-  - `unset`
-  - `env`
-  - `exit`
-- Execução de **comandos externos** via `execve`, procurando no `PATH`.  
-- **Tratamento de sinais** (Ctrl-C, Ctrl-D, Ctrl-\ ).  
-- **Gestão de erros** (comandos inválidos, sintaxe incorreta, etc).  
-- **Libertação correta de memória** e prevenção de leaks sempre que possível.
+`minishell` é uma reimplementação simplificada do **bash** em C. Cobre todo o pipeline desde a leitura do input do utilizador até à execução de processos, incluindo tokenização, parsing numa árvore binária, expansão de variáveis de ambiente, redirecionamentos, pipes e tratamento de sinais.
 
 ---
 
-## 📁 3. Estrutura do Código
+## ⚙️ Funcionalidades
 
-A estrutura do projeto está organizada da seguinte forma:
+| Categoria | Detalhes |
+|-----------|---------|
+| **Prompt** | Prompt customizado com leitura de linha de comando |
+| **Tokenizador** | Divide o input em palavras, operadores, pipes, aspas e variáveis |
+| **Expansão** | `$VAR`, `$HOME`, `$?` e todas as variáveis de ambiente |
+| **Redirecionamentos** | Entrada `<`, saída `>`, append `>>`, heredoc `<<` |
+| **Pipes** | Encadeamento de múltiplos comandos com `\|` |
+| **Sinais** | `Ctrl-C`, `Ctrl-D`, `Ctrl-\` tratados corretamente |
+| **Comandos externos** | Resolvidos via `PATH` e executados com `execve` |
+| **Gestão de erros** | Comandos inválidos, erros de sintaxe, redirecionamentos incorretos |
+| **Memória** | Limpeza total ao sair, prevenção de leaks ao longo de toda a execução |
+
+### Built-ins
+
+`cd` · `echo` · `pwd` · `export` · `unset` · `env` · `exit`
+
+---
+
+## 📁 Estrutura do Projeto
+
 ```
-MINISHELL/
-│
+minishell/
 ├── inc/
-│    └── minishell.h
-│
+│   └── minishell.h
 ├── libs/
-│
-├── srcs/
-│     ├── binary_tree/      # Construção e execução da árvore de execução
-│     ├── builtins/         # Implementação dos comandos built-in
-│     ├── error_functions/  # Gestão de mensagens e códigos de erro
-│     ├── exec/             # Execução de comandos e gestão de processos
-│     ├── expand/           # Expansão de variáveis de ambiente
-│     ├── free_functions/   # Libertação de memória e limpeza
-│     ├── heredoc/          # Implementação do heredoc (<<)
-│     ├── run/              # Run Builtins
-│     ├── signals/          # Tratamento de sinais
-│     ├── syntax_error/     # Verificação e tratamento de erros de sintaxe
-│     ├── tokenizer/        # Tokenização da linha de comandos
-│     ├── utils/            # Funções auxiliares (strings, arrays, etc)
-|     |
-│     └── init_shell.c      # Inicialização do shell
-│     └── main.c            # Ponto de entrada do programa
-|
-└── Makefile # Compilação do projeto
+└── srcs/
+    ├── binary_tree/      # Construção e travessia da árvore de execução
+    ├── builtins/         # Implementação dos comandos built-in
+    ├── error_functions/  # Mensagens de erro e códigos de saída
+    ├── exec/             # Execução de comandos e gestão de processos
+    ├── expand/           # Expansão de variáveis de ambiente
+    ├── free_functions/   # Libertação de memória e limpeza
+    ├── heredoc/          # Suporte a heredoc (<<)
+    ├── run/              # Despacho de built-ins
+    ├── signals/          # Handlers de sinais
+    ├── syntax_error/     # Validação de sintaxe
+    ├── tokenizer/        # Tokenização do input
+    ├── utils/            # Auxiliares de strings e arrays
+    ├── init_shell.c      # Inicialização do shell
+    └── main.c            # Ponto de entrada
 ```
 
 ---
 
-## 🧱 4. Compilação e Execução
+## 🚀 Compilação e Execução
 
-1. **Clonar o repositório:**
-   ```bash
-   git clone git@github.com:andrade950/42minishell.git
-   cd 42minishell
-2. **Compilar o projeto**
-   ```bash
-   make
-3. **Compilar o projeto com Valgrind:**
-   ```bash
-   make va
-4. **Executar o minishell:**
-   ```bash
-   ./minishell
-5. **Para sair do minishell, use:**
-   ```bash
-   exit
-    ou pressione Ctrl + D.
-  
+### Clonar
+
+```bash
+git clone git@github.com:andrade950/42minishell.git
+cd 42minishell
+```
+
+### Compilar
+
+```bash
+make              # Build normal
+make va           # Build com suporte a Valgrind
+```
+
+### Executar
+
+```bash
+./minishell
+```
+
+### Sair
+
+```bash
+exit
+# ou pressiona Ctrl+D
+```
+
+---
